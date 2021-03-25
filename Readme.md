@@ -1,6 +1,6 @@
-==========================================================
+
           D A T A S E T   D E S C R I P T I O N
-==========================================================
+
 
 Name of the dataset: Soldhouses_theNetherlands.csv
 
@@ -79,3 +79,5 @@ https://www.funda.nl/koop/INSERT_CITY_NAME/verkocht/sorteer-afmelddatum-af/.
 7. Maintenance (will the dataset be maintained? how? by whom?)
 
 	This dataset will be updated monthly by Wouter van Akkeren by scraping newly added houses to www.funda.nl/koop/heel-nederland/verkocht from month to month
+	
+	
