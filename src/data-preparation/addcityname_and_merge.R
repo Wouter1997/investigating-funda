@@ -3,7 +3,7 @@ library(tidyverse)
 library(data.table)
 
 
-files = list.files(pattern='[.]csv', path ="../../gen/input/",
+files = list.files(pattern='[.]csv', path ="../../gen/data-preparation/input/",
                 full.names=T)
 
 all_cities = lapply(files, function(fn) {
@@ -19,4 +19,4 @@ all_cities = lapply(files, function(fn) {
           
 merged = rbindlist(all_cities,fill=T)
 
-fwrite(merged, '../../gen/data-preparation/output/merged_cities.csv')
+fwrite(merged, '../../gen/data-preparation/temp/merged_cities.csv')

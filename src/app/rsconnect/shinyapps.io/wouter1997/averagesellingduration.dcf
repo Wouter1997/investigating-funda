@@ -1,0 +1,12 @@
+name: averagesellingduration
+title: averagesellingduration
+username:
+account: wouter1997
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3867118
+bundleId: 4398653
+url: https://wouter1997.shinyapps.io/averagesellingduration/
+when: 1616775669.45279
+asMultiple: FALSE
+asStatic: FALSE

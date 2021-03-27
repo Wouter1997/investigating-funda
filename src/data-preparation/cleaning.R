@@ -4,10 +4,10 @@ library(tidyr)
 library(dplyr)
 library(tibble)
 library(data.table)
-merged_cities <- read_csv('../../gen/data-preparation/output/merged_cities.csv')
+merged_cities <- read_csv('../../gen/data-preparation/temp/merged_cities.csv')
 
 #remove everything but city, price, offered since, selling date and construction year
-merged_cities <- merged_cities %>% select(`Aangeboden sinds`, Verkoopdatum, `Laatste vraagprijs`, stad, Bouwjaar) 
+merged_cities <- merged_cities %>% select(Adres, `Aangeboden sinds`, Verkoopdatum, `Laatste vraagprijs`, stad, Bouwjaar) 
 #remove na's
 merged_cities_clean <- merged_cities %>% drop_na()
 
@@ -43,12 +43,21 @@ merged_cities_clean$`Verkoopdatum_2` <- as.Date(merged_cities_clean$`Verkoopdatu
 merged_cities_clean$sellingduration <- difftime(merged_cities_clean$`Verkoopdatum_2`, merged_cities_clean$`Aangeboden sinds_date_2`, units = c("days"))
 
 #remove unnecessary columns
-merged_cities_clean <- merged_cities_clean %>% select(`sellingduration`, `Laatste vraagprijs_num`, stad, Bouwjaar) 
+merged_cities_clean <- merged_cities_clean %>% select(Adres, stad,  `Laatste vraagprijs_num`, `sellingduration`, Bouwjaar) 
 
 #rename columns
 library(dplyr)
-names(merged_cities_clean)[2] <- "Selling Price (in euros)"
-names(merged_cities_clean)[1] <- "Selling Duration (in days)"
+names(merged_cities_clean)[3] <- "Selling Price (in euros)"
+
+
+#some minor changes
+merged_cities_clean$price<- merged_cities_clean$`Selling Price (in euros)`
+merged_cities_clean$city<- as.factor(merged_cities_clean$stad)
+merged_cities_clean$constructionyear <- merged_cities_clean$Bouwjaar
+merged_cities_clean <- merged_cities_clean[-c(2, 3,5)]
+merged_cities_clean <- merged_cities_clean %>% select(Adres, city,  price, `sellingduration`, constructionyear) 
+final_dataset_housemarket <- merged_cities_clean %>% drop_na()
 
 #write csv with cleaned data
-fwrite(merged_cities_clean, '../../gen/data-preparation/output/cleaned_dataset_housemarket.csv')
+fwrite(final_dataset_housemarket, '../../gen/analysis/input/final_dataset_housemarket.csv')
+fwrite(final_dataset_housemarket, '../../gen/data-preparation/output/final_dataset_housemarket.csv')
