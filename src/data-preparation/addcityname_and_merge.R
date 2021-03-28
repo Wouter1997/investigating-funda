@@ -19,4 +19,5 @@ all_cities = lapply(files, function(fn) {
           
 merged = rbindlist(all_cities,fill=T)
 
+dir.create('../../gen/data-preparation/temp/')
 fwrite(merged, '../../gen/data-preparation/temp/merged_cities.csv')
