@@ -2,7 +2,6 @@
 ### Motivation
 
 The housing shortage in the Netherlands in the last few years has led to a serious housing crisis experienced today. Especially young people are encountering major difficulties in finding the right place for an affordable price. Also during the last political party elections, the housing crisis was a very much debated topic. For this reason, Team 2 realized the significance of creating a dataset that can give both house seekers and house sellers more insights into the housing market in the Netherlands. Mainly, the aim of creating this dataset is to make a house’s selling duration more predictable. For both parties this can lead to a more efficient housing market: house sellers can better predict for what period their house will be on sale, whilst house seekers get insights into the selling rate in a particular city.
-The raw data (retrieved from [https://www.funda.nl/koop/INSERTCITYNAME/verkocht/]() through webscraping) contains all of the information that is provided on the house product page for four cities: _Dordrecht, Eindhoven, Leeuwarden, and Maastricht_. To answer this research question, the 'selling price' and 'selling duration' variables are used. The other variables can be used for exploratory research by people interested in the Dutch housing market.
 
 ## Details
 ### Inputs and outputs
@@ -13,7 +12,7 @@ The raw data (retrieved from [https://www.funda.nl/koop/INSERTCITYNAME/verkocht/
 
 ### Description of the methodology
 To create the dataset, information from the relevant Funda page with the sold houses is scraped. This is possible on city-, province-, and for the Netherlands as a whole, and can be achieved by adapting the link below for the wanted city or province: 
-[https://www.funda.nl/koop/INSERTCITYNAME/verkocht/](). Every data entity in the dataset represents a house that has been sold in the past year. This repository contains raw data collected on March 22, 2021 for the following cities: Dordrecht, Eindhoven, Leeuwarden, and Maastricht. This is a dataset with a total of 6,631 entities. 
+[https://www.funda.nl/koop/INSERTCITYNAME/verkocht/](). Every data entity in the dataset represents a house that has been sold in the past year. This repository contains raw data collected on March 22, 2021 for the following cities: `Dordrecht, Eindhoven, Leeuwarden, and Maastricht`. This is a dataset with a total of 6,631 entities. 
 
 The datasets for the four cities are downloaded from a private Google drive folder, and are merged into one full dataset. This dataset contained numerous unnecessary variables in terms of our research question. These were removed resulting in a dataset with the following variables: address, city, selling price, selling duration and construction year. Variables that contained one or more 'NA' values were taken out as well, resulting in a dataset with 6,633 entities. 
 
@@ -41,18 +40,31 @@ Construction year is a variable that was left out of the final regression analys
 
 ### Running the code
 
-In your command line/ terminal:
 
-* Navigate to the directory in which this readme file resides, by typing `pwd` (Mac) or `dir` (Windows) in terminal
- * if not, change your working directory by typing "`cd yourpath/`" 
 
-*  In your command line/ terminal, type: "`make`"
+ In your command line/ terminal:
 
-* *Generated files:*
+
+   *  Navigate to the directory in which this readme file resides, by typing `pwd` (Mac) or `dir` (Windows) in terminal
+	
+	* if not, change your working directory by typing "`cd yourpath/`" 
+
+  *  In your command line/ terminal, type: "`make`"
+
+*Generated files:*
+
  * Dataset housemarket: `gen/data-preparation/output/final_dataset_housemarket.csv`
  * Dataset merged cities: `gen/data-preparation/temp/merged_cities.csv` 
  * Linear regression results: `gen/analysis/Linearregression.csv` 
  * Plots: `src/analysis/RPlots.pdf`
+ 
+
+To run the app:
+
+* Open `app.R `
+* Run the code, a new window displaying the app should pop up
+* Simply press `publish` in the top right corner and follow the instructions
+
 
 
  
