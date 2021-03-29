@@ -1,7 +1,6 @@
 #Makefile
 #By Wouter van Akkeren
 
-#All: ../../gen/data-preparation/output/final_dataset_housemarket.csv
 priority: ../../gen/data-preparation/output/final_dataset_housemarket.csv
 
 

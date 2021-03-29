@@ -1,5 +1,5 @@
 #Makefile
-#By Wouter van Akkeren
+#By Wouter v. Akkeren
 
 
 priority: ../../gen/analysis/output/Linearregression.csv
