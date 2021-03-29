@@ -45,7 +45,7 @@ In your command line/ terminal:
 
 *  In your command line/ terminal, type: "make"
 
-* Generated files:
+* *Generated files:*
  * Dataset housemarket: gen/data-preparation/output/final_dataset_housemarket.csv
  * Dataset merged cities: gen/data-preparation/temp/merged_cities.csv
  * Linear regression results: gen/analysis/Linearregression.csv
