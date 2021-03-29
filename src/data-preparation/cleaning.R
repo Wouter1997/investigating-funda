@@ -59,7 +59,10 @@ merged_cities_clean <- merged_cities_clean %>% select(Adres, city,  price, `sell
 final_dataset_housemarket <- merged_cities_clean %>% drop_na()
 
 #write csv with cleaned data
+dir.create('../../gen/analysis')
 dir.create('../../gen/analysis/input/')
+dir.create('../../gen/analysis/output')
 dir.create('../../gen/data-preparation/output/')
 fwrite(final_dataset_housemarket, '../../gen/analysis/input/final_dataset_housemarket.csv')
 fwrite(final_dataset_housemarket, '../../gen/data-preparation/output/final_dataset_housemarket.csv')
+fwrite(final_dataset_housemarket, '../../src/app/final_dataset_housemarket.csv')

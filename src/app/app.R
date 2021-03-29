@@ -7,6 +7,7 @@ dataset_housemarket <- read.csv("final_dataset_housemarket.csv")
 dataset_housemarket$city <- as.factor(dataset_housemarket$city)
 
 
+
 ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
@@ -39,6 +40,7 @@ server <- function(input, output){
              constructionyear >= input$constructionyear) %>%
       ggplot(aes(x = price,
                  y = sellingduration)) +
+      xlab("Selling Price") + ylab("Selling Duration") +
       geom_point() +
       scale_x_continuous(limits= input$price) +
       theme_minimal()

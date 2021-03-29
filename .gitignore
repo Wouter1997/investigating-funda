@@ -1,4 +1,4 @@
 .DS_store
 gen/*
-data/*
 .RHistory
+.Rdata
